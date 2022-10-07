@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public Transform player;
-    private Vector3 startPostion;
-    // Start is called before the first frame update
-    void Start()
-    {
-        startPostion = transform.position;
-    }
+    [SerializeField] private Transform target;
+    private Vector3 startPostion = new Vector3(0, 5, 0);
+    private Vector3 velocity = Vector3.zero;
+    private float smoothTime = 0.25f;
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.position + startPostion;
+        //transform.LookAt(player);
+        Vector3 position = target.position + startPostion;
+        transform.position = Vector3.SmoothDamp(transform.position, position, ref velocity, smoothTime);
     }
 }
