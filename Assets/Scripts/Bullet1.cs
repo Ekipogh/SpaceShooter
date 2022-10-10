@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet1 : MonoBehaviour
 {
-    [SerializeField] private float speed = 1f;
-    private int ticks = 1000;
+    private Transform target;
+    private float speed = 5f;
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (ticks-- == 0)
+        if (target == null)
         {
             Destroy(gameObject);
             return;
         }
         float step = speed * Time.deltaTime;
-        transform.position -= transform.forward * step;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,5 +30,10 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 }

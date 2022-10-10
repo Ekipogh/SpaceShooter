@@ -14,7 +14,7 @@ public class MachineGun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bullets = new List<GameObject>(20);
+        bullets = new List<GameObject>(5);
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class MachineGun : MonoBehaviour
         Transform enemy = FindEnemy();
         if (enemy != null)
         {
-            //.LookAt(enemies.position);
+            LookAtEnemy(enemy);
             if (shootCooldown-- == 0)
             {
                 shootCooldown = shootCooldownMax;
@@ -32,12 +32,21 @@ public class MachineGun : MonoBehaviour
         }
     }
 
+    private void LookAtEnemy(Transform enemy)
+    {
+        float damping = 7f;
+        Vector3 lookPos = transform.position - enemy.position;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+    }
+
     private void ShootEnemy(Transform enemy)
     {
         if (bullets.Count < bullets.Capacity)
         {
-            Bullet bullet = Instantiate<Bullet>(bulletPrefab, transform.position, transform.rotation);
-            bullet.SetTarget(enemy);
+            Transform bulletSpawningPoint = transform.GetChild(0);
+            Bullet bullet = Instantiate<Bullet>(bulletPrefab, bulletSpawningPoint.position, transform.rotation);
         }
     }
 
