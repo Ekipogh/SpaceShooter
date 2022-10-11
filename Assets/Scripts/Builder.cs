@@ -14,6 +14,6 @@ public class Builder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Console.WriteLine(Input.GetAxis("DPadX"));
+        
     }
 }
