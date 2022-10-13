@@ -8,6 +8,7 @@ public class Enemies : MonoBehaviour
     private int enemyCount = 0;
     public GameObject enemyPrefab;
     private int spawnTicker = 0;
+    public static bool endPhase = false;
 
     private static readonly int spawnTickerDefault = 1000;
     private static readonly int randomX = 30;
@@ -25,6 +26,10 @@ public class Enemies : MonoBehaviour
             float z = transform.position.z - Random.Range(-randomZ, randomZ);
             GameObject spawnedEnemy = Instantiate(enemyPrefab, new Vector3(x, 0, z), Quaternion.identity);
             spawnedEnemy.transform.parent = gameObject.transform;
+        }
+        if(enemyCount == enemyMax)
+        {
+            endPhase = true;
         }
     }
 }
