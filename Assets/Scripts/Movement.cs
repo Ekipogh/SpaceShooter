@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 50f;
+    [SerializeField] Transform player;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +16,6 @@ public class Movement : MonoBehaviour
         Vector3 move = new Vector3(inputX * speed, 0, inputZ * speed);
         move *= Time.deltaTime;
 
-        transform.Translate(move);
+        player.Translate(move);
     }
 }
