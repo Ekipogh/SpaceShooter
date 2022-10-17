@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class CameraScript : MonoBehaviour
+public class Camera : MonoBehaviour
 {
     [SerializeField] private Transform target;
     private Vector3 startPostion;
@@ -17,5 +18,10 @@ public class CameraScript : MonoBehaviour
         //transform.LookAt(player);
         Vector3 position = target.position + startPostion;
         transform.position = Vector3.SmoothDamp(transform.position, position, ref velocity, smoothTime);
+    }
+
+    public void OnLook(InputValue value)
+    {
+        Debug.Log(value.ToString());
     }
 }
