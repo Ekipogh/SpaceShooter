@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemies : MonoBehaviour
@@ -17,7 +15,7 @@ public class Enemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTicker-- == 0 && enemyCount++<enemyMax)
+        if (spawnTicker-- == 0 && enemyCount++ < enemyMax)
         {
             spawnTicker = spawnTickerDefault;
 
@@ -27,7 +25,7 @@ public class Enemies : MonoBehaviour
             GameObject spawnedEnemy = Instantiate(enemyPrefab, new Vector3(x, 0, z), Quaternion.identity);
             spawnedEnemy.transform.parent = gameObject.transform;
         }
-        if(enemyCount == enemyMax)
+        if (enemyCount == enemyMax)
         {
             endPhase = true;
         }

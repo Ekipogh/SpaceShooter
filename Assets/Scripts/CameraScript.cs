@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
@@ -7,7 +5,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Transform target;
     private Vector3 startPostion;
     private Vector3 velocity = Vector3.zero;
-    private float smoothTime = 0.25f;
+    private readonly float smoothTime = 0.25f;
 
     private void Start()
     {
