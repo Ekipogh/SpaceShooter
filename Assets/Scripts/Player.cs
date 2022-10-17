@@ -21,9 +21,4 @@ public class Player : MonoBehaviour
         movementX = move.x;
         movementZ = move.y; 
     }
-
-    public void OnLook(InputValue value)
-    {
-        Camera camera = Camera.
-    }
 }
