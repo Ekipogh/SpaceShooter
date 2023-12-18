@@ -72,6 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # General macOS
-.DS_Store
+**/.DS_Store
 .AppleDouble
 .LSOverride
+.vscode

@@ -167,33 +167,22 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "ea3926e8-21cc-4ed9-a993-307f6ec423ef",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e62b909e-4050-4388-b044-ce8c8088012b",
                     "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
+                    "groups": "Keyboard&Mouse",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "76d5b977-ed89-4f0a-821a-aca8b0eef8da",
-                    "path": "<Joystick>/{Hatswitch}",
+                    "id": "ea3926e8-21cc-4ed9-a993-307f6ec423ef",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false

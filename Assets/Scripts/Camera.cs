@@ -28,6 +28,7 @@ public class Camera : MonoBehaviour
     {
         Vector2 look = value.Get<Vector2>();
         look *= lookSpeed * Time.deltaTime;
+        Debug.Log(look);
         lookX = look.x;
         lookY = look.y;
     }

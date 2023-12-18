@@ -16,9 +16,15 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        Debug.Log("Moved");
         Vector2 move = value.Get<Vector2>();
         move *= Time.deltaTime * speed;
         movementX = move.x;
         movementZ = move.y; 
+    }
+    
+    public void OnLook(InputValue value)
+    {
+        Debug.Log("Looked");
     }
 }
