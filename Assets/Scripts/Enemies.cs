@@ -30,4 +30,10 @@ public class Enemies : MonoBehaviour
             endPhase = true;
         }
     }
+
+    public void startPhase()
+    {
+        endPhase = false;
+        enemyCount = 0;
+    }
 }

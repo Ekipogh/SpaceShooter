@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.LowLevel;
 
 public class GameFlow : MonoBehaviour
 {
     [SerializeField] Transform player;
-    //ButtonControl startButton;
+    ButtonControl startButton;
     [SerializeField] UnityEvent endFightingPhaseEvent;
+    [SerializeField] UnityEvent startFightingPhaseEvent;
     [SerializeField] Enemies enemies;
 
     private void Awake()
     {
         //startButton = Gamepad.current[GamepadButton.Start];
-        //DontDestroyOnLoad(this);
-        //DontDestroyOnLoad(player.gameObject);
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +24,10 @@ public class GameFlow : MonoBehaviour
         {
             print("End Phase");
             endFightingPhaseEvent.Invoke();
+        }
+        if(Enemies.endPhase && startButton.isPressed)
+        {
+            startFightingPhaseEvent.Invoke();
         }
     }
 }
